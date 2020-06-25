@@ -24,6 +24,7 @@ public class UserController {
 	@Autowired
 	 UserService userService;
 
+	//一覧ページ
 	 @GetMapping(value = "/user/list")
 	  public String displayList(Model model) {
 	    List<User> userlist = userService.searchAll();
@@ -31,12 +32,14 @@ public class UserController {
 	    return "user/list";
 	  }
 
+	 //登録ページ
 	 @GetMapping(value = "/user/add")
 	  public String displayAdd(Model model) {
 	    model.addAttribute("userRequest", new UserRequest());
 	    return "user/add";
 	  }
 
+	 //エラー出力
 	 @RequestMapping(value = "/user/create", method = RequestMethod.POST)
 	  public String create(@Validated @ModelAttribute UserRequest userRequest, BindingResult result, Model model) {
 	    if (result.hasErrors()) {

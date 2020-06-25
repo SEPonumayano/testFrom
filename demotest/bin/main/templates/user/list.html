@@ -17,12 +17,11 @@
     </thead>
     <tbody>
         <tr th:each="user : ${userlist}" th:object="${user}">
-            <td class="center" th:text="${id}"></td>
-            <td th:text="${name}"></td>
-            <td th:text="${address}"></td>
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.address}"></td>
         </tr>
       </tbody>
   </table>
-
 </body>
 </html>

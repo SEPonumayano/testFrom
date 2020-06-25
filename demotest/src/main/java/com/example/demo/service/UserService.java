@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -16,6 +15,7 @@ import com.example.demo.repository.UserRepository;
 @Transactional(rollbackOn = Exception.class)
 public class UserService {
 
+	//一覧情報
 	 @Autowired
 	  private UserRepository userRepository;
 
@@ -23,8 +23,8 @@ public class UserService {
 		    return userRepository.findAll();
 		  }
 
+	 //エラー
 	 public void create(UserRequest userRequest) {
-		    Date now = new Date();
 		    User user = new User();
 		    user.setName(userRequest.getName());
 		    user.setAddress(userRequest.getAddress());
