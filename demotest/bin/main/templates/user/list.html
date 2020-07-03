@@ -20,6 +20,7 @@
             <td th:text="${user.id}"></td>
             <td th:text="${user.name}"></td>
             <td th:text="${user.address}"></td>
+<td><a th:href="@{/user/{id}(id=*{id})}">syousai</a></td>
         </tr>
       </tbody>
   </table>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<table th:object="${userRequest}">
+<tr>
+<th><p th:text="*{name}"></p></th>
+<th><p th:text="*{address}"></p></th>
+</tr>
+</table>
+<a href="@{/user/{id}/edit(id=*{id})}">hensyu</a>
+<a href="/user/list">modoru</a>
+
+</body>
+</html>

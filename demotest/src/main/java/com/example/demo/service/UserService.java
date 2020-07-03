@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.UserRequest;
+import com.example.demo.dto.UserUpdateRequest;
 import com.example.demo.entity.User;
 import com.example.demo.repository.UserRepository;
 
@@ -23,6 +24,10 @@ public class UserService {
 		    return userRepository.findAll();
 		  }
 
+	 public User findById(Long id) {
+		 return userRepository.findById(id).get();
+	 }
+
 	 //エラー
 	 public void create(UserRequest userRequest) {
 		    User user = new User();
@@ -30,4 +35,15 @@ public class UserService {
 		    user.setAddress(userRequest.getAddress());
 		    userRepository.save(user);
 		  }
+
+	 //kousin
+	 public void update(UserUpdateRequest userUpdateRequest) {
+	        User user = findById(userUpdateRequest.getId());
+	        user.setAddress(userUpdateRequest.getAddress());
+	        user.setName(userUpdateRequest.getName());
+	        //user.setPhone(userUpdateRequest.getPhone());
+	        //user.setUpdateDate(new Date());
+	        userRepository.save(user);
+	    }
 }
+
